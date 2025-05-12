@@ -14,7 +14,7 @@ export const QueryResponse = ({ query, response }: QueryResponseProps) => {
   const { tool, contexts, answer } = response;
   
   return (
-    <div className="mt-8 space-y-6">
+    <div className="mt-8 space-y-6 animate-slide-up">
       <div className="space-y-2">
         <h3 className="text-sm font-medium text-muted-foreground">Your question:</h3>
         <Card>
@@ -40,7 +40,7 @@ export const QueryResponse = ({ query, response }: QueryResponseProps) => {
         </TabsList>
         
         <TabsContent value="answer" className="mt-4">
-          <Card className="border-primary/10">
+          <Card className="border-primary/10 shadow-md hover:shadow-lg transition-shadow duration-300">
             <CardContent className="pt-6">
               <div className="prose prose-sm dark:prose-invert max-w-full">
                 <div className="whitespace-pre-wrap">{answer}</div>
@@ -56,7 +56,7 @@ export const QueryResponse = ({ query, response }: QueryResponseProps) => {
                 <ScrollArea className="h-[350px] rounded-md">
                   <div className="p-4 space-y-4">
                     {contexts.map((context, index) => (
-                      <Card key={index} className="bg-muted/40 overflow-hidden">
+                      <Card key={index} className="bg-muted/40 overflow-hidden hover:bg-muted/60 transition-colors">
                         <CardContent className="p-4">
                           <div className="flex justify-between mb-2">
                             <Badge variant="outline" className="bg-background">Source: {context.source}</Badge>

@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Send, Loader2 } from 'lucide-react';
@@ -13,7 +13,7 @@ interface QueryInputProps {
 export const QueryInput = ({ onSubmit, isLoading, disabled }: QueryInputProps) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim() || isLoading) return;
     
@@ -22,18 +22,18 @@ export const QueryInput = ({ onSubmit, isLoading, disabled }: QueryInputProps) =
     if (!isLoading) {
       setTimeout(() => setInputValue(''), 500);
     }
-  };
+  }, [inputValue, isLoading, onSubmit]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit(e);
+      handleSubmit(e as unknown as React.FormEvent);
     }
-  };
+  }, [handleSubmit]);
 
   return (
     <form onSubmit={handleSubmit} className="relative space-y-2">
-      <div className="relative border border-border rounded-lg focus-within:ring-2 focus-within:ring-primary/20 transition-all hover:border-primary/40">
+      <div className="relative border border-border rounded-lg focus-within:ring-2 focus-within:ring-primary/20 transition-all hover:border-primary/40 shadow-sm">
         <Textarea
           placeholder={
             disabled 

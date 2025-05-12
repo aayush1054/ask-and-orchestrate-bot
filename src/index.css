@@ -131,3 +131,33 @@ pre::-webkit-scrollbar-track {
 .hover-card {
   @apply transition-all duration-300 hover:shadow-md hover:translate-y-[-2px];
 }
+
+/* Custom feature cards */
+.feature-card {
+  @apply p-6 rounded-lg border bg-card shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+/* Document card styling */
+.doc-card {
+  @apply bg-card border rounded-lg p-4 hover:shadow-md transition-all;
+}
+
+/* Custom focus styles */
+.custom-focus {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+/* Button hover effect */
+.button-hover {
+  @apply hover:translate-y-[-1px] hover:shadow-md transition-all duration-200;
+}
+
+/* Pulse animation for loading states */
+.pulse-loading {
+  @apply animate-pulse-opacity;
+}

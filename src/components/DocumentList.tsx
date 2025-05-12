@@ -3,7 +3,7 @@ import { Document } from '@/types';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Trash2, FileText, FileCode, FileImage, FileArchive } from 'lucide-react';
-import { formatDistanceToNow } from 'date-fns';
+import { formatRelativeTime } from '@/utils/helpers';
 
 interface DocumentListProps {
   documents: Document[];
@@ -44,7 +44,7 @@ export const DocumentList = ({ documents, onRemove }: DocumentListProps) => {
         </span> 
         Uploaded Documents
       </h3>
-      <div className="border rounded-lg overflow-hidden">
+      <div className="border rounded-lg overflow-hidden shadow-sm">
         <ScrollArea className="h-[280px]">
           <div className="divide-y">
             {documents.map((doc) => {
@@ -62,7 +62,7 @@ export const DocumentList = ({ documents, onRemove }: DocumentListProps) => {
                     <div className="overflow-hidden flex-1 min-w-0">
                       <p className="text-sm font-medium truncate">{doc.name}</p>
                       <p className="text-xs text-muted-foreground flex items-center gap-1">
-                        <span>{formatDistanceToNow(doc.dateAdded, { addSuffix: true })}</span>
+                        <span>{formatRelativeTime(doc.dateAdded)}</span>
                         <span className="inline-block w-1 h-1 rounded-full bg-muted-foreground/30"></span>
                         <span>{doc.chunks.length} chunks</span>
                       </p>

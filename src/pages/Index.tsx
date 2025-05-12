@@ -1,5 +1,5 @@
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { AppLayout } from '@/components/AppLayout';
 import { QueryInput } from '@/components/QueryInput';
 import { QueryResponse } from '@/components/QueryResponse';
@@ -17,7 +17,7 @@ const Index = () => {
   const { processQuery } = useQueryAssistant();
   const responseRef = useRef<HTMLDivElement>(null);
 
-  const handleQuerySubmit = async (queryText: string) => {
+  const handleQuerySubmit = useCallback(async (queryText: string) => {
     if (!queryText.trim() || isLoading) return;
     
     setIsLoading(true);
@@ -37,7 +37,7 @@ const Index = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [documents, isLoading, processQuery]);
 
   return (
     <AppLayout>

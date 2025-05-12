@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { Github } from 'lucide-react';
-import { BrainCircuit } from 'lucide-react';
+import { Github, BrainCircuit } from 'lucide-react';
 
 interface AppLayoutProps {
   children: React.ReactNode;
