@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
+import { Github } from 'lucide-react';
 import { BrainCircuit } from 'lucide-react';
 
 interface AppLayoutProps {
@@ -23,7 +23,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
               rel="noreferrer"
               className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <GitHubLogoIcon className="h-4 w-4" />
+              <Github className="h-4 w-4" />
               <span>GitHub</span>
             </a>
           </div>
