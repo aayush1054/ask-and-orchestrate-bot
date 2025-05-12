@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 220 25% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 246 80% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -90,7 +90,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
@@ -110,4 +110,24 @@ pre::-webkit-scrollbar-track {
 
 .code-block {
   @apply relative font-mono text-sm bg-muted p-4 rounded-md overflow-x-auto max-w-full;
+}
+
+/* Custom animations and transitions */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Custom glassmorphism effect */
+.glass {
+  @apply backdrop-blur-md bg-white/30 border border-white/20 dark:bg-black/30 dark:border-white/10;
+}
+
+/* Card hover effect */
+.hover-card {
+  @apply transition-all duration-300 hover:shadow-md hover:translate-y-[-2px];
 }
